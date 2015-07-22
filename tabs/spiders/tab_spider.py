@@ -12,10 +12,10 @@ from tabs.items import TabSheet
 class TabReader(scrapy.Spider):
     name = "tab"
     allowed_domains = ["ultimate-guitar.com"]
-    start_url = ["http://tabs.ultimate-guitar.com/o/onerepublic/apologize_tab.htm"]
+    start_urls = ["http://tabs.ultimate-guitar.com/o/onerepublic/apologize_tab.htm"]
 
     def parse(self, response):
-        for page in response.xpath("//tb_ct"):
+        for page in response.xpath("//div[@class='tb_ct']/div[@id='cont']"):
             sheet = TabSheet()
-            # Probably not using the right xpath but I'm new
-            sheet['tabs'] = page.xpath('div/pre/text()').extract()
+            sheet['tabs'] = page.xpath('pre[not(@*)]/text()').extract()
+            yield sheet
