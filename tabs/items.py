@@ -7,8 +7,12 @@
 
 import scrapy
 
+# Item to get tabs from site
+class TabSheet(scrapy.Item):
+    tabs = scrapy.Field()
+    pass
 
-class TabsItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+# Chords are also on the site
+class ChordSheet(scrapy.Item):
+    chords = scrapy.Field()
     pass
