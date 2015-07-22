@@ -15,7 +15,7 @@ class TabReader(scrapy.Spider):
     start_urls = ["http://tabs.ultimate-guitar.com/o/onerepublic/apologize_tab.htm"]
 
     def parse(self, response):
-        for page in response.xpath("//div[@class='tb_ct']/div[@id='cont']"):
+        for page in response.xpath(".//div[@class='tb_ct']/div[@id='cont']"):
             sheet = TabSheet()
             sheet['tabs'] = page.xpath('pre[not(@*)]/text()').extract()
             yield sheet
