@@ -5,7 +5,7 @@
 
 import re
 
-TAB_RGX = r'^[A-Za-z\#]{0,2}[\-\|\\\/\~0-9]+\s*[xX0-9]*$'
+TAB_RGX = r'^[A-Za-z\#]{0,2}[\:\(\)\^\-\|\\\/\~0-9hHpPxX]+\s*[xX0-9]*$'
 
 def parseTab(raw):
     tab = []
