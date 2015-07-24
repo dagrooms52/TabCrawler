@@ -12,7 +12,15 @@ from tabs.items import TabSheet
 class TabReader(scrapy.Spider):
     name = "tab"
     allowed_domains = ["ultimate-guitar.com"]
-    start_urls = ["http://tabs.ultimate-guitar.com/o/onerepublic/apologize_tab.htm"]
+    start_urls = []
+
+    def __init__(self, link = ""):
+        if(link == ""):
+            print("Improper link format (tab_spider.py)")
+            return
+        else:
+            print(link)
+            self.start_urls.append(link)
 
     def parse(self, response):
         for page in response.xpath(".//div[@class='tb_ct']/div[@id='cont']"):
