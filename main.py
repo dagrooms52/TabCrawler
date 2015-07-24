@@ -4,6 +4,8 @@
 # The main command-line application for the Tab Crawler
 
 import sys
+import tabs
+
 import xml.etree.ElementTree as xmltree
 import tabs.parsefuncs as parsefuncs
 
@@ -22,8 +24,7 @@ def main(tabLink):
     process.start()
 
     # Link has been scraped, now process it
-    ''' Need a pipeline to access this file. Everything else up to here works
-    tree = xmltree.parse(file)
+    tree = xmltree.parse(tabs.pipelines.filename)
     root = tree.getroot()
     value = root[0][0][0]
     rawTab = value.text
@@ -34,9 +35,12 @@ def main(tabLink):
     cleanTab = parsefuncs.parseTab(rawTab)
 
     print("Clean tab is:")
+    count = 0
     for line in cleanTab:
-        print line'''
-
+        count += 1
+        print line
+        if(count % 6 == 0):
+            print(" ")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

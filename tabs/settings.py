@@ -9,11 +9,16 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+import scrapy
+
 BOT_NAME = 'tabs'
 
 SPIDER_MODULES = ['tabs.spiders']
 NEWSPIDER_MODULE = 'tabs.spiders'
 
+ITEM_PIPELINES = {
+    'tabs.pipelines.XmlPipeline': 1
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tabs (+http://www.yourdomain.com)'
@@ -62,7 +67,7 @@ NEWSPIDER_MODULE = 'tabs.spiders'
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'tabs.pipelines.SomePipeline': 300,
+#
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
