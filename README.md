@@ -15,7 +15,9 @@ So far, this will output only the raw tab lines from the file. In the future, th
 
 ---
 
-### Supported Tab Format
+#### 
+
+##### Supported Tab Format
 Tabs stored at the input link should roughly resemble the following example:
 
 ```
@@ -30,12 +32,16 @@ E:-7-------------------------------|---------------------------------|
 
 The parser is fairly lenient on formatting however. If you find a tab format that won't work, please open an issue!
 
+##### Supported Domains
+Different domains have different methods of storing their tabs. The currently supported domains are:
+- [Ultimate-Guitar](http://www.ultimate-guitar.com/)
+
 ---
 
 #### Feature Plan
 
 ##### Intended Features:
-- Extract tabs from links
+- Extract tabs from links :ballot_box_with_check:
 - Extract all tabs from links with multiple tabs listed (such as an artist's tab listing)
 - Store processed tabs in a database
 - Allow user to scan stored tabs and display them from a list
@@ -45,6 +51,7 @@ The parser is fairly lenient on formatting however. If you find a tab format tha
 ##### Stretch Features:
 - User interface with above intended features
 - Process tabs and restructure graphically into a pdf or image output format
+- Tab maker: let user write a tab, then format perfectly for upload to any tab site
 
 ---
 
