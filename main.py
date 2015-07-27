@@ -7,20 +7,25 @@ import sys
 import tabs
 
 import xml.etree.ElementTree as xmltree
-import tabs.parsefuncs as parsefuncs
-
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from tabs.spiders.tab_spider import TabReader
+
+import tabs.parsefuncs as parsefuncs
+import tabs.spiders.tab_spider as Spiders
 
 def main(tabLink):
-    # Make a spider with the input link
-    tabSpider = TabReader(tabLink)
+    if(tabLink.find("ultimate-guitar.com")):
+        tabSpider = Spiders.Ultimate(tabLink)
+    elif(tabLink.find("guitartabs.cc")):
+        tabSpider = Spiders.TabCC(tabLink)
+    else:
+        print("Domain name not supported.")
+        return
 
-    # Make a process to instantiate a TabReader spider with the given
+    # Make a process to instantiate a Ultimate spider with the given
     # arguments and make it crawl the link
     process = CrawlerProcess(get_project_settings())
-    process.crawl(TabReader, link = tabLink)
+    process.crawl(tabSpider, link=tabLink)
     process.start()
 
     # Link has been scraped, now process it

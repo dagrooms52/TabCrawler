@@ -9,8 +9,6 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-import scrapy
-
 BOT_NAME = 'tabs'
 
 SPIDER_MODULES = ['tabs.spiders']

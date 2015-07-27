@@ -3,20 +3,15 @@
 
 # Parsing functions for guitar tabs
 
-import re
-
-TAB_RGX = r'^[A-Za-z\#]{0,2}\s*[\*\:\(\)\^\-\|\\\/\~0-9hHpPxX]+\s*[xX0-9]*$'
-
 def parseTab(raw):
     tab = []
 
     # Split the tab into an array of its lines
-    lines = re.split("\n+", raw)
+    lines = raw.split("\n")
 
     for line in lines:
-        match = re.search(TAB_RGX, line)
-        if match:
-            tab.append(match.group())
+        if(line.count("-") > 5):
+            tab.append(line)
 
     return tab
 
